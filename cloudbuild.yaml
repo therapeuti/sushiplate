@@ -1,0 +1,10 @@
+steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'gcr.io/$PROJECT_ID/sushi-calculate:latest', '.']
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'gcr.io/$PROJECT_ID/sushi-calculate:latest']
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: 'gcloud'
+    args: ['run', 'deploy', 'sushi-calculate', '--image', 'gcr.io/$PROJECT_ID/sushi-calculate:latest', '--platform', 'managed', '--region', 'us-east1', '--allow-unauthenticated']
+images:
+  - 'gcr.io/$PROJECT_ID/sushi-calculate:latest'

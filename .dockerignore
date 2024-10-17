@@ -1,0 +1,8 @@
+sushivenv/
+__pycache__/
+other-model/
+*.pyc
+*.pyo
+*.pyd
+.git
+.gitignore

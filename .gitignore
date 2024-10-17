@@ -1,0 +1,8 @@
+# Ignore virtual environment folder
+sushivenv/
+
+# Ignore large files
+*.dll
+*.lib
+*.pyd
+*.pt
